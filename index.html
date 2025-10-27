@@ -5,31 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fastea - Fresh Tea, Fast Delivery</title>
   <style>
-    /* === Global === */
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
-      margin: 0;
-      background-color: #f8f6f2;
-      color: #333;
-      transition: background 0.4s, color 0.4s;
-      line-height: 1.6;
-    }
-    body.dark {
-      background: #1e1e1e;
-      color: #f2f2f2;
-    }
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fastea - Fresh Tea, Fast Delivery</title>
-  <style>
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
@@ -47,17 +22,6 @@
       color: #fff;
       text-align: center;
       padding: 30px 10px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    }
-    header h1 {
-      font-size: 2.5em;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-    header p {
-      margin-top: 8px;
-      font-size: 1.2em;
-      opacity: 0.9;
     }
 
     nav {
@@ -66,40 +30,21 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     nav a {
       color: #fff;
       text-decoration: none;
       padding: 14px 20px;
-      font-weight: 500;
       transition: 0.3s;
-    }
-    nav a:hover {
-      background: #388e3c;
-      border-radius: 30px;
-      transform: translateY(-2px);
     }
 
     .hero {
-      position: relative;
       text-align: center;
       color: #fff;
       padding: 100px 20px;
       background: linear-gradient(rgba(46, 125, 50, 0.65), rgba(46, 125, 50, 0.65)),
         url("https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1350&q=80")
           center/cover no-repeat;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
-      animation: fadeInDown 1s ease forwards;
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 650px;
-      margin: 0 auto 25px;
-      animation: fadeInUp 1.2s ease forwards;
     }
     .cta-btn {
       background: #ffd600;
@@ -108,39 +53,22 @@
       font-size: 1.1em;
       border-radius: 50px;
       font-weight: bold;
-      color: #333;
       cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      animation: fadeIn 1.4s ease forwards;
-    }
-    .cta-btn:hover {
-      background: #ffe44d;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     .products {
-      background: #fff;
       padding: 70px 20px;
       text-align: center;
-    }
-    .products h2 {
-      color: #2e7d32;
-      font-size: 2.2em;
-      margin-bottom: 40px;
+      background: #fff;
     }
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 25px;
-      justify-items: center;
     }
     .product-card {
       background: #faf9f7;
       border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: 0.3s;
       overflow: hidden;
       max-width: 300px;
     }
@@ -148,18 +76,6 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover img {
-      transform: scale(1.05);
-    }
-    .product-card h3 {
-      margin: 15px 0 10px;
-      color: #2e7d32;
-    }
-    .product-card p {
-      padding: 0 15px 20px;
-      font-size: 0.95em;
     }
 
     footer {
@@ -169,26 +85,7 @@
       padding: 35px 10px;
       margin-top: 60px;
     }
-    .social-links {
-      margin: 15px 0;
-    }
-    .social-links a {
-      color: #ffd600;
-      text-decoration: none;
-      margin: 0 8px;
-      font-size: 1.2em;
-      transition: 0.3s;
-    }
-    .social-links a:hover {
-      color: #fff;
-      transform: scale(1.2);
-    }
-    .contact-info {
-      font-size: 0.95em;
-      opacity: 0.9;
-    }
 
-    /* Popup Form */
     .order-popup {
       display: none;
       position: fixed;
@@ -199,7 +96,6 @@
       background: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
-      z-index: 999;
     }
     .popup-content {
       background: #fff;
@@ -207,43 +103,24 @@
       border-radius: 12px;
       width: 90%;
       max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       position: relative;
-    }
-    .popup-content h2 {
-      color: #2e7d32;
-      margin-bottom: 15px;
     }
     .popup-content input,
     .popup-content select {
       width: 100%;
       padding: 10px;
       margin-bottom: 12px;
-      border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 1em;
+      border: 1px solid #ccc;
     }
     .popup-content button {
       width: 100%;
       background: #2e7d32;
       color: #fff;
       padding: 12px;
-      border: none;
       border-radius: 8px;
+      border: none;
       font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .popup-content button:hover {
-      background: #388e3c;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.4em;
-      color: #555;
-      cursor: pointer;
     }
     #successMsg {
       display: none;
@@ -252,17 +129,16 @@
       font-weight: 600;
       margin-top: 10px;
     }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.4em;
+      cursor: pointer;
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Fastea</h1>
@@ -278,7 +154,7 @@
 
   <section class="hero">
     <h1>Experience Tea Like Never Before</h1>
-    <p>Handpicked blends, delivered to your doorstep. Order your favorite tea and enjoy the Fastea experience!</p>
+    <p>Handpicked blends delivered fast to your door</p>
     <button class="cta-btn" id="orderNow">Order Now</button>
   </section>
 
@@ -286,33 +162,22 @@
     <h2>Our Featured Teas</h2>
     <div class="product-grid">
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=500&q=80" alt="Green Tea">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=500&q=80">
         <h3>Premium Green Tea</h3>
-        <p>Refreshing, antioxidant-rich green tea leaves sourced from the best gardens for a healthy boost.</p>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1465101178521-1e28985be8c9?auto=format&fit=crop&w=500&q=80" alt="Masala Chai">
-        <h3>Spicy Masala Chai</h3>
-        <p>A warm blend of black tea and aromatic spices, perfect for your morning routine or evening breaks.</p>
+        <img src="https://images.unsplash.com/photo-1465101178521-1e28985be8c9?auto=format&fit=crop&w=500&q=80">
+        <h3>Masala Chai</h3>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Chamomile Bliss">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80">
         <h3>Chamomile Bliss</h3>
-        <p>Relax and unwind with our soothing chamomile tea, great for stress relief and restful nights.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div>Fastea &copy; 2025 | All Rights Reserved.</div>
-    <div class="social-links">
-      <a href="#">l</a>
-      <a href="#">t</a>
-      <a href="#">h</a>
-    </div>
-    <div class="contact-info">
-      Contact: support@fastea.com | +91-12345-67890
-    </div>
+    <div>Fastea © 2025 | All Rights Reserved</div>
   </footer>
 
   <!-- Order Popup -->
@@ -322,7 +187,7 @@
       <h2>Place Your Order</h2>
       <form id="orderForm">
         <input type="text" id="name" placeholder="Full Name" required>
-        <input type="number" id="mnum," placeholder="mobile" required>
+        <input type="number" id="mnum" placeholder="Mobile Number" required>
         <input type="text" id="address" placeholder="Address" required>
         <select id="teaType" required>
           <option value="">Select Tea Type</option>
@@ -332,11 +197,11 @@
         </select>
         <button type="submit">Submit Order</button>
       </form>
-      <div id="successMsg">? Order placed successfully!</div>
+      <div id="successMsg">✅ Order placed successfully!</div>
     </div>
   </div>
 
- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     const popup = document.getElementById("orderPopup");
     const openBtn = document.getElementById("orderNow");
@@ -344,39 +209,24 @@
     const form = document.getElementById("orderForm");
     const successMsg = document.getElementById("successMsg");
 
-    // Show popup
-    openBtn.addEventListener("click", () => {
-      popup.style.display = "flex";
-    });
-    // Hide popup
-    closeBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-    window.addEventListener("click", e => {
-      if (e.target === popup) popup.style.display = "none";
-    });
+    openBtn.addEventListener("click", () => popup.style.display = "flex");
+    closeBtn.addEventListener("click", () => popup.style.display = "none");
+    window.addEventListener("click", e => { if (e.target === popup) popup.style.display = "none"; });
 
-    // Initialize EmailJS
     (function(){
-      emailjs.init("s-BtFtshW6egHbbnI"); // ?? Replace with your actual EmailJS public key
+      emailjs.init("s-BtFtshW6egHbbnI"); 
     })();
 
-    // Send Order
     form.addEventListener("submit", e => {
       e.preventDefault();
       const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("mnum").value.trim();
+      const phone = document.getElementById("mnum").value.trim();
       const address = document.getElementById("address").value.trim();
       const tea = document.getElementById("teaType").value;
 
-      if (!name || !email || !address || !tea) {
-        alert("Please fill all fields!");
-        return;
-      }
-
       emailjs.send("service_78d9sqw", "template_du9ymrf", {
         from_name: name,
-        mnumb:mnum,
+        mnumb: phone,
         address: address,
         tea_type: tea
       })
@@ -386,13 +236,16 @@
         setTimeout(() => {
           successMsg.style.display = "none";
           popup.style.display = "none";
-        }, 2500);
+          alert("✅ Order Confirmed! You will receive updates soon.");
+        }, 2000);
       })
-      .catch(err => {
-        console.error("Error:", err);
-        alert("? Something went wrong. Try again.");
+      .catch(error => {
+        alert("❌ Something went wrong. Try again.");
+        console.log(error);
       });
     });
   </script>
+
 </body>
 </html>
+
