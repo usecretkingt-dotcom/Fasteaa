@@ -322,7 +322,7 @@
       <h2>Place Your Order</h2>
       <form id="orderForm">
         <input type="text" id="name" placeholder="Full Name" required>
-        <input type="number" id="mobile_no.," placeholder="mobile no." required>
+        <input type="number" id="mobile_," placeholder="mobile" required>
         <input type="text" id="address" placeholder="Address" required>
         <select id="teaType" required>
           <option value="">Select Tea Type</option>
@@ -376,7 +376,7 @@
 
       emailjs.send("service_78d9sqw", "template_du9ymrf", {
         from_name: name,
-        from_mobile_no.: mobno,
+        mobile: mobile_,
         address: address,
         tea_type: tea
       })
