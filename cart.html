@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +28,7 @@
       margin: 0;
       font-size: 1.8rem;
     }
-    
+
     /* === NAVIGATION STYLES === */
     nav {
       background: #2e7d32;
@@ -36,15 +37,18 @@
       gap: 15px;
       flex-wrap: wrap;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
       padding: 14px 20px;
       transition: 0.3s;
     }
+
     nav a:hover {
-        background: #1b5e20;
+      background: #1b5e20;
     }
+
     /* ========================= */
 
     .back-link {
@@ -82,25 +86,25 @@
     .cart-item {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Spread items out */
+      justify-content: space-between;
       padding: 15px 0;
       border-bottom: 1px solid #eee;
     }
-    
+
     .cart-item:last-child {
-        border-bottom: none;
+      border-bottom: none;
     }
 
     .item-img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-right: 15px;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
     }
 
     .item-details {
-      flex-grow: 1; /* Allows details to take up remaining space */
+      flex-grow: 1;
       margin-right: 15px;
     }
 
@@ -117,10 +121,10 @@
     }
 
     .item-quantity {
-        width: 100px;
-        text-align: center;
+      width: 100px;
+      text-align: center;
     }
-    
+
     .qty-input {
       width: 50px;
       padding: 5px;
@@ -130,12 +134,12 @@
     }
 
     .item-total {
-        width: 100px;
-        text-align: right;
-        font-weight: 700;
-        color: #2e7d32;
+      width: 100px;
+      text-align: right;
+      font-weight: 700;
+      color: #2e7d32;
     }
-    
+
     .remove-btn {
       background: #e57373;
       color: white;
@@ -151,103 +155,104 @@
     .remove-btn:hover {
       background: #d32f2f;
     }
-    /* ================================== */
 
     /* === MODAL/POPUP STYLES === */
     .modal {
-        position: fixed;
-        z-index: 1000; 
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.6);
-        display: none; 
-        padding-top: 50px;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: none;
+      padding-top: 50px;
     }
 
     .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto; 
-        padding: 30px;
-        border: 1px solid #888;
-        width: 90%;
-        max-width: 500px;
-        border-radius: 10px;
-        position: relative;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 30px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
     .close-btn {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
     }
 
     .close-btn:hover,
     .close-btn:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     .checkout-form label {
-        display: block;
-        margin-top: 15px;
-        font-weight: 600;
-        color: #1b5e20;
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #1b5e20;
     }
 
-    .checkout-form input, 
+    .checkout-form input,
     .checkout-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
     }
 
     .checkout-form button {
-        background: #ffb300;
-        color: #000;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        cursor: pointer;
-        margin-top: 25px;
-        width: 100%;
-        transition: background 0.3s;
+      background: #ffb300;
+      color: #000;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 25px;
+      width: 100%;
+      transition: background 0.3s;
     }
-    
+
     .checkout-form button:hover {
-        background: #ff9000;
+      background: #ff9000;
     }
 
     #orderSummaryInModal {
-        border-top: 1px dashed #ccc;
-        border-bottom: 1px dashed #ccc;
-        padding: 10px 0;
-        margin-bottom: 20px;
-        font-size: 0.9em;
+      border-top: 1px dashed #ccc;
+      border-bottom: 1px dashed #ccc;
+      padding: 10px 0;
+      margin-bottom: 20px;
+      font-size: 0.9em;
     }
-    /* ================================== */
-    
+
+    /* Cart Summary */
     .cart-summary {
       margin-top: 30px;
       padding-top: 20px;
       border-top: 2px solid #1b5e20;
       text-align: right;
     }
+
     .cart-summary p {
       font-size: 1.2rem;
       font-weight: 700;
       margin: 5px 0;
     }
+
     .checkout-btn {
       background: #2e7d32;
       color: white;
@@ -260,14 +265,16 @@
       margin-top: 20px;
       transition: background 0.3s;
     }
+
     .checkout-btn:hover {
       background: #1b5e20;
     }
+
     .empty-cart-message {
-        text-align: center;
-        font-size: 1.2em;
-        padding: 50px;
-        color: #777;
+      text-align: center;
+      font-size: 1.2em;
+      padding: 50px;
+      color: #777;
     }
 
     footer {
@@ -277,26 +284,50 @@
       padding: 10px 0;
       margin-top: 40px;
     }
+    
+    /* Message Style (HIGH PRIORITY FIX) */
+    .success-message-style {
+      /* ADDING display: none; HERE IN CSS */
+      display: none; 
+      
+      /* Positioning to override any layout issues */
+      position: fixed; /* Fixes it to the viewport */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centers the message perfectly */
+      z-index: 10001; /* Extremely high value to guarantee it's on top */
+      
+      /* Visual styling */
+      max-width: 800px; 
+      width: 90%;
+      font-weight:700; 
+      font-size: 1.5em; /* Made slightly larger */
+      padding: 30px; /* More padding */
+      border: 3px solid; /* Thicker border */
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Added shadow */
+    }
   </style>
-  
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   </script>
   <script type="text/javascript">
-      (function() {
-          // You must update this with your actual EmailJS Public Key
-          emailjs.init({
-            publicKey: "YOUR_EMAILJS_PUBLIC_KEY", 
-          });
-      })();
+    (function () {
+      // Use your actual EmailJS Public Key
+      emailjs.init({
+        publicKey: "s-BtFtshW6egHbbnI",
+      });
+    })();
   </script>
 </head>
+
 <body>
   <header>
     <h1>Your Shopping Cart 🛍️</h1>
     <a href="cat.html" class="back-link">← Continue Shopping</a>
   </header>
-  
+
   <nav>
     <a href="index.html">Home</a>
     <a href="cat.html">Shop</a>
@@ -309,7 +340,7 @@
     <div id="cartItems">
       <p class="empty-cart-message">Your cart is empty.</p>
     </div>
-    
+
     <div id="cartSummary" class="cart-summary" style="display:none;">
       <p>Subtotal: <span id="subtotal"></span></p>
       <button class="checkout-btn" id="openCheckoutModal">Proceed to Checkout</button>
@@ -320,22 +351,24 @@
     © 2025 Fastea | Made with ❤️ for Tea Lovers
   </footer>
 
+  <div id="orderMessage" class="success-message-style"></div> 
+
   <div id="checkoutModal" class="modal">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
       <h3>Order Details</h3>
-      
+
       <div id="orderSummaryInModal"></div>
 
       <form id="checkoutForm" class="checkout-form">
         <label for="fullName">Full Name</label>
         <input type="text" id="fullName" name="fullName" required>
+        
+        <label for="customerEmail">Email Address</label>
+        <input type="email" id="customerEmail" name="customerEmail" required>
 
         <label for="mobileNo">Mobile Number</label>
         <input type="tel" id="mobileNo" name="mobileNo" pattern="[0-9]{10}" title="Ten digits only" required>
-        
-        <label for="email">Email (For Confirmation)</label>
-        <input type="email" id="email" name="email" required>
 
         <label for="deliveryAddress">Delivery Address</label>
         <textarea id="deliveryAddress" name="deliveryAddress" rows="3" required></textarea>
@@ -350,13 +383,14 @@
       const cartItemsContainer = document.getElementById("cartItems");
       const subtotalElement = document.getElementById("subtotal");
       const summaryContainer = document.getElementById("cartSummary");
-      
-      // Modal elements
+
       const modal = document.getElementById("checkoutModal");
       const openModalBtn = document.getElementById("openCheckoutModal");
       const closeBtn = document.querySelector(".close-btn");
       const checkoutForm = document.getElementById("checkoutForm");
       const orderSummaryInModal = document.getElementById("orderSummaryInModal");
+      
+      let cleanOrderDetails = "";
 
 
       /* --- CART LOGIC FUNCTIONS --- */
@@ -370,28 +404,28 @@
         cartItemsContainer.innerHTML = "";
         let subtotal = 0;
         let summaryHtml = "<h4>Your Order Summary</h4>";
-        let orderDetailsArray = [];
+        cleanOrderDetails = "Order Details:\n"; 
 
         if (cart.length === 0) {
           cartItemsContainer.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
           summaryContainer.style.display = 'none';
-          modal.style.display = 'none'; 
+          modal.style.display = 'none';
+          document.getElementById("orderMessage").style.display = 'none';
           return;
         }
 
         cart.forEach((item, index) => {
-          const price = parseFloat(item.price); 
+          const price = parseFloat(item.price);
           const quantity = parseInt(item.quantity);
 
           if (isNaN(price) || isNaN(quantity)) {
-              console.error("Invalid price or quantity for item:", item.name);
-              return;
+            console.error("Invalid price or quantity for item:", item.name);
+            return;
           }
 
-          const itemTotal = price * quantity; 
-          subtotal += itemTotal; 
+          const itemTotal = price * quantity;
+          subtotal += itemTotal;
 
-          // Build item details for the main cart view using template literal (safe here)
           const itemElement = document.createElement("div");
           itemElement.classList.add("cart-item");
           itemElement.dataset.index = index;
@@ -409,115 +443,143 @@
           `;
           cartItemsContainer.appendChild(itemElement);
 
-          // Collect details for the modal summary using basic concatenation.
           summaryHtml += "<p>" + item.name + " (x" + quantity + ") - ₹" + itemTotal.toFixed(2) + "</p>";
-          orderDetailsArray.push({ name: item.name, quantity: quantity, total: itemTotal.toFixed(2) });
+          
+          // Collect clean details for EmailJS
+          cleanOrderDetails += item.name + " (Qty: " + quantity + ") - Total: ₹" + itemTotal.toFixed(2) + "\n";
         });
-        
-        // Finalize modal summary
-        summaryHtml += '<p><strong>Subtotal: ₹${subtotal.toFixed(2)}</strong></p>';
+
+        summaryHtml += '<p><strong>Subtotal: ₹' + subtotal.toFixed(2) + '</strong></p>';
         orderSummaryInModal.innerHTML = summaryHtml;
+        
+        cleanOrderDetails += "-------------------------\n";
+        cleanOrderDetails += "GRAND TOTAL: " + "₹" + subtotal.toFixed(2);
+
 
         cartItemsContainer.querySelectorAll('.qty-input').forEach(input => {
-            input.addEventListener('change', handleQuantityChange);
+          input.addEventListener('change', handleQuantityChange);
         });
         cartItemsContainer.querySelectorAll('.remove-btn').forEach(button => {
-            button.addEventListener('click', handleRemoveItem);
+          button.addEventListener('click', handleRemoveItem);
         });
 
-        // Set subtotal text content.
         subtotalElement.textContent = "₹" + subtotal.toFixed(2);
-        
         summaryContainer.style.display = 'block';
       }
-      
+
       function handleQuantityChange(event) {
-          const index = parseInt(event.target.dataset.index);
-          let newQty = parseInt(event.target.value);
-          
-          if (newQty < 1 || isNaN(newQty)) {
-              newQty = 1;
-              event.target.value = 1; 
-          }
-          
-          cart[index].quantity = newQty;
-          saveCart(); 
+        const index = parseInt(event.target.dataset.index);
+        let newQty = parseInt(event.target.value);
+
+        if (newQty < 1 || isNaN(newQty)) {
+          newQty = 1;
+          event.target.value = 1;
+        }
+
+        cart[index].quantity = newQty;
+        saveCart();
       }
-      
+
       function handleRemoveItem(event) {
-          const index = parseInt(event.target.dataset.index);
-          const removedItemName = cart[index].name;
-          cart.splice(index, 1);
-          saveCart(); 
-          console.log(removedItemName + " removed from cart.");
+        const index = parseInt(event.target.dataset.index);
+        cart.splice(index, 1);
+        saveCart();
       }
 
-
-      /* --- MODAL AND EMAILJS LOGIC --- */
-
-      // Open Modal
-      openModalBtn.onclick = function() {
+      openModalBtn.onclick = function () {
         if (cart.length > 0) {
-            updateCartDisplay(); 
-            modal.style.display = "block";
+          updateCartDisplay();
+          modal.style.display = "block";
         } else {
-            alert("Your cart is empty! Please add items to proceed.");
+          alert("Your cart is empty! Please add items to proceed.");
         }
       }
 
-      // Close Modal (x button)
-      closeBtn.onclick = function() {
+      closeBtn.onclick = function () {
         modal.style.display = "none";
       }
 
-      // Close Modal (click outside)
-      window.onclick = function(event) {
+      window.onclick = function (event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }
       }
-      
-      // Submit Form Handler
-      checkoutForm.addEventListener('submit', function(event) {
+
+      // --- DUAL EMAILJS LOGIC ---
+      checkoutForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        
+
         const formData = new FormData(this);
         const name = formData.get('fullName');
         const mobile = formData.get('mobileNo');
         const address = formData.get('deliveryAddress');
-        const email = formData.get('email');
+        const customerEmail = formData.get('customerEmail'); // Get new field
         
-        const orderSummary = orderSummaryInModal.textContent;
+        document.getElementById("orderMessage").style.display = 'none';
 
         const templateParams = {
-            from_name: name,
-            to_email: email, 
-            customer_email: email, 
-            customer_mobile: mobile,
-            delivery_address: address,
-            order_details: orderSummary,
-            total_amount: subtotalElement.textContent
+          from_name: name,
+          customer_mobile: mobile,
+          delivery_address: address,
+          order_details: cleanOrderDetails,
+          total_amount: subtotalElement.textContent,
+          customer_email: customerEmail // Passed to templates
         };
 
-        // --- EMAILJS INTEGRATION ---
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-            .then(function(response) {
-               console.log('SUCCESS!', response.status, response.text);
-               alert('Order placed successfully! Confirmation sent to ' + email + '.');
-               
-               cart = [];
-               saveCart(); 
-               modal.style.display = "none";
+        const serviceID = 'service_78d9sqw'; 
+        // NOTE: REPLACE THESE WITH YOUR ACTUAL TEMPLATE IDs
+        const ownerTemplateID = 'template_du9ymrf';     // Template for Store Owner
+        const customerTemplateID = 'template_l2mvg5c'; // Template for Auto-Reply
 
-            }, function(error) {
-               console.error('FAILED...', error);
-               alert('Order failed to send. Please try again. Error: ' + error.text);
-            });
+        const msg = document.getElementById("orderMessage");
+
+        // 1. Send Notification to Store Owner
+        emailjs.send(serviceID, ownerTemplateID, templateParams)
+          .then(() => {
+            // 2. If Owner notification succeeds, send Confirmation to Customer
+            return emailjs.send(serviceID, customerTemplateID, templateParams); 
+          })
+          .then(function (response) {
+            // SUCCESS: Both emails sent
+            console.log('SUCCESS! Both emails sent:', response.status, response.text);
+
+            // 1. SET MESSAGE CONTENT AND STYLE
+            msg.textContent = "✅ Your order has been placed successfully! Confirmation email sent.";
+            msg.style.color = "#1b5e20";
+            msg.style.borderColor = "#1b5e20";
+            msg.style.backgroundColor = "#e8f5e9";
+            
+            // 2. CRITICAL: Make sure the message is visible before any other changes
+            msg.style.display = 'block'; 
+
+            // 3. Clear cart and storage
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartDisplay();
+            
+            // 4. Hide the modal popup (after message is set)
+            modal.style.display = 'none';
+
+            // 5. Hide message after 7 seconds
+            setTimeout(() => {
+              msg.style.display = 'none';
+            }, 7000); 
+
+          }, function (error) {
+            // FAILURE: At least one email failed
+            console.log('FAILED...', error);
+            
+            msg.textContent = "❌ Order placement failed. Please try again or contact support.";
+            msg.style.color = "#d32f2f";
+            msg.style.borderColor = "#d32f2f";
+            msg.style.backgroundColor = "#ffebee";
+            msg.style.display = 'block';
+          });
       });
-
       // Initial call
       updateCartDisplay();
     });
-</script>
+  </script>
 </body>
+
 </html>
