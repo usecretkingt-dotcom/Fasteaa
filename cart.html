@@ -1,1 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart | Fastea 🍃</title>
+  <style>
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      margin: 0;
+      background: #f7f6f2;
+      color: #333;
+      line-height: 1.6;
+    }
 
+    header {
+      background: #1b5e20;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    
+    /* === NAVIGATION STYLES === */
+    nav {
+      background: #2e7d32;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 20px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+        background: #1b5e20;
+    }
+    /* ========================= */
+
+    .back-link {
+      background: #ffb300;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: #ff9000;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #1b5e20;
+      margin-bottom: 30px;
+    }
+
+    /* === IMPROVED CART ITEM STYLES === */
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Spread items out */
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+
+    .item-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+
+    .item-details {
+      flex-grow: 1; /* Allows details to take up remaining space */
+      margin-right: 15px;
+    }
+
+    .item-details h3 {
+      margin: 0 0 5px 0;
+      color: #1b5e20;
+      font-size: 1.1em;
+    }
+
+    .item-details p {
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.9em;
+    }
+
+    .item-quantity {
+        width: 100px;
+        text-align: center;
+    }
+    
+    .qty-input {
+      width: 50px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .item-total {
+        width: 100px;
+        text-align: right;
+        font-weight: 700;
+        color: #2e7d32;
+    }
+    
+    .remove-btn {
+      background: #e57373;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 20px;
+      font-size: 0.9em;
+    }
+
+    .remove-btn:hover {
+      background: #d32f2f;
+    }
+    /* ================================== */
+
+    /* === MODAL/POPUP STYLES === */
+    .modal {
+        position: fixed;
+        z-index: 1000; 
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.6);
+        display: none; 
+        padding-top: 50px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; 
+        padding: 30px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .checkout-form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+        color: #1b5e20;
+    }
+
+    .checkout-form input, 
+    .checkout-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .checkout-form button {
+        background: #ffb300;
+        color: #000;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 25px;
+        width: 100%;
+        transition: background 0.3s;
+    }
+    
+    .checkout-form button:hover {
+        background: #ff9000;
+    }
+
+    #orderSummaryInModal {
+        border-top: 1px dashed #ccc;
+        border-bottom: 1px dashed #ccc;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        font-size: 0.9em;
+    }
+    /* ================================== */
+    
+    .cart-summary {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px solid #1b5e20;
+      text-align: right;
+    }
+    .cart-summary p {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+    .checkout-btn {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+    .checkout-btn:hover {
+      background: #1b5e20;
+    }
+    .empty-cart-message {
+        text-align: center;
+        font-size: 1.2em;
+        padding: 50px;
+        color: #777;
+    }
+
+    footer {
+      background: #1b5e20;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+  </style>
+  
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+      (function() {
+          // You must update this with your actual EmailJS Public Key
+          emailjs.init({
+            publicKey: "YOUR_EMAILJS_PUBLIC_KEY", 
+          });
+      })();
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Your Shopping Cart 🛍️</h1>
+    <a href="cat.html" class="back-link">← Continue Shopping</a>
+  </header>
+  
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cat.html">Shop</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="cart-container">
+    <h2>Items in Your Cart</h2>
+    <div id="cartItems">
+      <p class="empty-cart-message">Your cart is empty.</p>
+    </div>
+    
+    <div id="cartSummary" class="cart-summary" style="display:none;">
+      <p>Subtotal: <span id="subtotal"></span></p>
+      <button class="checkout-btn" id="openCheckoutModal">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Fastea | Made with ❤️ for Tea Lovers
+  </footer>
+
+  <div id="checkoutModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>Order Details</h3>
+      
+      <div id="orderSummaryInModal"></div>
+
+      <form id="checkoutForm" class="checkout-form">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="mobileNo">Mobile Number</label>
+        <input type="tel" id="mobileNo" name="mobileNo" pattern="[0-9]{10}" title="Ten digits only" required>
+        
+        <label for="email">Email (For Confirmation)</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="deliveryAddress">Delivery Address</label>
+        <textarea id="deliveryAddress" name="deliveryAddress" rows="3" required></textarea>
+
+        <button type="submit" id="submitOrderBtn">Place Order</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartItemsContainer = document.getElementById("cartItems");
+      const subtotalElement = document.getElementById("subtotal");
+      const summaryContainer = document.getElementById("cartSummary");
+      
+      // Modal elements
+      const modal = document.getElementById("checkoutModal");
+      const openModalBtn = document.getElementById("openCheckoutModal");
+      const closeBtn = document.querySelector(".close-btn");
+      const checkoutForm = document.getElementById("checkoutForm");
+      const orderSummaryInModal = document.getElementById("orderSummaryInModal");
+
+
+      /* --- CART LOGIC FUNCTIONS --- */
+
+      function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+      }
+
+      function updateCartDisplay() {
+        cartItemsContainer.innerHTML = "";
+        let subtotal = 0;
+        let summaryHtml = "<h4>Your Order Summary</h4>";
+        let orderDetailsArray = [];
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
+          summaryContainer.style.display = 'none';
+          modal.style.display = 'none'; 
+          return;
+        }
+
+        cart.forEach((item, index) => {
+          const price = parseFloat(item.price); 
+          const quantity = parseInt(item.quantity);
+
+          if (isNaN(price) || isNaN(quantity)) {
+              console.error("Invalid price or quantity for item:", item.name);
+              return;
+          }
+
+          const itemTotal = price * quantity; 
+          subtotal += itemTotal; 
+
+          // Build item details for the main cart view using template literal (safe here)
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("cart-item");
+          itemElement.dataset.index = index;
+          itemElement.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="item-img">
+            <div class="item-details">
+              <h3>${item.name}</h3>
+              <p>Unit Price: ₹${price.toFixed(2)}</p>
+            </div>
+            <div class="item-quantity">
+                <input type="number" class="qty-input" value="${quantity}" min="1" data-index="${index}">
+            </div>
+            <div class="item-total">₹${itemTotal.toFixed(2)}</div>
+            <button class="remove-btn" data-index="${index}">Remove</button>
+          `;
+          cartItemsContainer.appendChild(itemElement);
+
+          // Collect details for the modal summary using basic concatenation.
+          summaryHtml += "<p>" + item.name + " (x" + quantity + ") - ₹" + itemTotal.toFixed(2) + "</p>";
+          orderDetailsArray.push({ name: item.name, quantity: quantity, total: itemTotal.toFixed(2) });
+        });
+        
+        // Finalize modal summary
+        summaryHtml += '<p><strong>Subtotal: ₹${subtotal.toFixed(2)}</strong></p>';
+        orderSummaryInModal.innerHTML = summaryHtml;
+
+        cartItemsContainer.querySelectorAll('.qty-input').forEach(input => {
+            input.addEventListener('change', handleQuantityChange);
+        });
+        cartItemsContainer.querySelectorAll('.remove-btn').forEach(button => {
+            button.addEventListener('click', handleRemoveItem);
+        });
+
+        // Set subtotal text content.
+        subtotalElement.textContent = "₹" + subtotal.toFixed(2);
+        
+        summaryContainer.style.display = 'block';
+      }
+      
+      function handleQuantityChange(event) {
+          const index = parseInt(event.target.dataset.index);
+          let newQty = parseInt(event.target.value);
+          
+          if (newQty < 1 || isNaN(newQty)) {
+              newQty = 1;
+              event.target.value = 1; 
+          }
+          
+          cart[index].quantity = newQty;
+          saveCart(); 
+      }
+      
+      function handleRemoveItem(event) {
+          const index = parseInt(event.target.dataset.index);
+          const removedItemName = cart[index].name;
+          cart.splice(index, 1);
+          saveCart(); 
+          console.log(removedItemName + " removed from cart.");
+      }
+
+
+      /* --- MODAL AND EMAILJS LOGIC --- */
+
+      // Open Modal
+      openModalBtn.onclick = function() {
+        if (cart.length > 0) {
+            updateCartDisplay(); 
+            modal.style.display = "block";
+        } else {
+            alert("Your cart is empty! Please add items to proceed.");
+        }
+      }
+
+      // Close Modal (x button)
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // Close Modal (click outside)
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      // Submit Form Handler
+      checkoutForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(this);
+        const name = formData.get('fullName');
+        const mobile = formData.get('mobileNo');
+        const address = formData.get('deliveryAddress');
+        const email = formData.get('email');
+        
+        const orderSummary = orderSummaryInModal.textContent;
+
+        const templateParams = {
+            from_name: name,
+            to_email: email, 
+            customer_email: email, 
+            customer_mobile: mobile,
+            delivery_address: address,
+            order_details: orderSummary,
+            total_amount: subtotalElement.textContent
+        };
+
+        // --- EMAILJS INTEGRATION ---
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+               console.log('SUCCESS!', response.status, response.text);
+               alert('Order placed successfully! Confirmation sent to ' + email + '.');
+               
+               cart = [];
+               saveCart(); 
+               modal.style.display = "none";
+
+            }, function(error) {
+               console.error('FAILED...', error);
+               alert('Order failed to send. Please try again. Error: ' + error.text);
+            });
+      });
+
+      // Initial call
+      updateCartDisplay();
+    });
+</script>
+</body>
+</html>
