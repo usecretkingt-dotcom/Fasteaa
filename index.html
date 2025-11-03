@@ -22,6 +22,11 @@
       color: #fff;
       text-align: center;
       padding: 30px 10px;
+      position: relative; /* Cart Link के लिए */
+    }
+    
+    header h1 {
+        margin-bottom: 5px;
     }
 
     nav {
@@ -37,6 +42,34 @@
       padding: 14px 20px;
       transition: 0.3s;
     }
+    nav a:hover {
+        background: #1b5e20;
+    }
+
+    .cart-link-header {
+      position: absolute;
+      top: 30px;
+      right: 20px;
+      background: #ffb300;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cart-link-header:hover {
+        background: #ff9000;
+    }
+    .cart-count {
+      background: red;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 50%;
+      font-size: 0.9em;
+      margin-left: 5px;
+    }
+
 
     .hero {
       text-align: center;
@@ -46,36 +79,20 @@
         url("https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1350&q=80")
           center/cover no-repeat;
     }
-    .cta-btn {
-      background: #ffd600;
-      border: none;
-      padding: 14px 35px;
-      font-size: 1.1em;
-      border-radius: 50px;
-      font-weight: bold;
-      cursor: pointer;
+    .hero h1 {
+        font-size: 2.5rem;
     }
-
+   
     .products {
       padding: 70px 20px;
       text-align: center;
       background: #fff;
     }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 25px;
-    }
-    .product-card {
-      background: #faf9f7;
-      border-radius: 14px;
-      overflow: hidden;
-      max-width: 300px;
-    }
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    
+    .products h2 {
+        color: #2e7d32;
+        margin-bottom: 40px;
+        font-size: 2rem;
     }
 
     footer {
@@ -85,57 +102,6 @@
       padding: 35px 10px;
       margin-top: 60px;
     }
-
-    .order-popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-    }
-    .popup-content {
-      background: #fff;
-      padding: 25px 30px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      position: relative;
-    }
-    .popup-content input,
-    .popup-content select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    .popup-content button {
-      width: 100%;
-      background: #2e7d32;
-      color: #fff;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      font-size: 1em;
-    }
-    #successMsg {
-      display: none;
-      text-align: center;
-      color: #2e7d32;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.4em;
-      cursor: pointer;
-    }
   </style>
 </head>
 
@@ -143,109 +109,47 @@
   <header>
     <h1>Fastea</h1>
     <p>Fresh Tea, Fast Delivery</p>
+    <a href="cart.html" class="cart-link-header">Cart 🛒<span class="cart-count" id="cartCount">0</span></a>
   </header>
 
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
+    <a href="index.html">Home</a>
+    <a href="cat.html">Shop</a>
+    <a href="#">About Us</a>
     <a href="#">Contact</a>
   </nav>
 
   <section class="hero">
     <h1>Experience Tea Like Never Before</h1>
     <p>Handpicked blends delivered fast to your door</p>
-    <button class="cta-btn" id="orderNow">Order Now</button>
+    <a href="cat.html" style="display: inline-block; background: #ffb300; color: #000; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 6px; margin-top: 20px;">Shop Now</a>
   </section>
 
   <section class="products">
     <h2>Our Featured Teas</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=500&q=80">
-        <h3>Premium Green Tea</h3>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1465101178521-1e28985be8c9?auto=format&fit=crop&w=500&q=80">
-        <h3>Masala Chai</h3>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80">
-        <h3>Chamomile Bliss</h3>
-      </div>
-    </div>
-  </section>
+    <p>Click on 'Shop' to see our full collection!</p>
+    </section>
 
   <footer>
     <div>Fastea © 2025 | All Rights Reserved</div>
   </footer>
 
-  <!-- Order Popup -->
-  <div class="order-popup" id="orderPopup">
-    <div class="popup-content">
-      <span class="close-btn" id="closePopup">&times;</span>
-      <h2>Place Your Order</h2>
-      <form id="orderForm">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="number" id="mnum" placeholder="Mobile Number" required>
-        <input type="text" id="address" placeholder="Address" required>
-        <select id="teaType" required>
-          <option value="">Select Tea Type</option>
-          <option>Green Tea</option>
-          <option>Masala Chai</option>
-          <option>Chamomile Bliss</option>
-        </select>
-        <button type="submit">Submit Order</button>
-      </form>
-      <div id="successMsg">✅ Order placed successfully!</div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    const popup = document.getElementById("orderPopup");
-    const openBtn = document.getElementById("orderNow");
-    const closeBtn = document.getElementById("closePopup");
-    const form = document.getElementById("orderForm");
-    const successMsg = document.getElementById("successMsg");
-
-    openBtn.addEventListener("click", () => popup.style.display = "flex");
-    closeBtn.addEventListener("click", () => popup.style.display = "none");
-    window.addEventListener("click", e => { if (e.target === popup) popup.style.display = "none"; });
-
-    (function(){
-      emailjs.init("s-BtFtshW6egHbbnI"); 
-    })();
-
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("mnum").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const tea = document.getElementById("teaType").value;
-
-      emailjs.send("service_78d9sqw", "template_du9ymrf", {
-        from_name: name,
-        mnumb: phone,
-        address: address,
-        tea_type: tea
-      })
-      .then(() => {
-        successMsg.style.display = "block";
-        form.reset();
-        setTimeout(() => {
-          successMsg.style.display = "none";
-          popup.style.display = "none";
-          alert("✅ Order Confirmed! You will receive updates soon.");
-        }, 2000);
-      })
-      .catch(error => {
-        alert("❌ Something went wrong. Try again.");
-        console.log(error);
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+        function updateCartCount() {
+            // LocalStorage से कार्ट डेटा लेता है
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            // कार्ट में items की कुल संख्या दिखाता है
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCountElement = document.getElementById("cartCount");
+            if (cartCountElement) {
+                cartCountElement.textContent = totalItems;
+            }
+        }
+        
+        // पेज लोड होने पर कार्ट काउंट दिखाता है
+        updateCartCount();
     });
   </script>
-
 </body>
 </html>
-
